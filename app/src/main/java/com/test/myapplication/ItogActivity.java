@@ -15,6 +15,5 @@ public class ItogActivity extends AppCompatActivity {
 
         answerTextView = findViewById(R.id.answerTextView);
         answerTextView.setText(getIntent().getStringExtra("answer2"));
-        //answerTextView.setText("231238888888888888888888888888888881313");
     }
 }
