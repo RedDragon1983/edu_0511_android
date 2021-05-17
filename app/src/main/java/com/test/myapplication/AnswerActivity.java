@@ -16,13 +16,7 @@ public class AnswerActivity extends AppCompatActivity {
 
         answerTextView = findViewById(R.id.answerTextView);
         answerTextView.setText(isAnswerTrue?R.string.yes:R.string.no);
-        //answerTextView.setText("");
-        /*if(isAnswerTrue){
-            answerTextView.setText(R.string.yes);
-        }else{
-            answerTextView.setText(R.string.no);
-        }*/
-
+        
     }
 
 }
