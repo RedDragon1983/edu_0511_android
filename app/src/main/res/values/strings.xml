@@ -4,11 +4,12 @@
     <string name="incorrect">Неправильно!</string>
     <string name="yes">Да</string>
     <string name="no">Нет</string>
-    <string name="question0">2+2=4</string>
-    <string name="question1">Энергию в клетки продуцирует рибосомы?</string>
-    <string name="question2">Ядро Юпитера из металлического водорода?</string>
-    <string name="question3">Kорабль корпорации SpaceX называется DarkSlide!</string>
-    <string name="question4">Атомы рождены при вспышках сверхновых!</string>
-    <string name="question5">String это числовой тип данных!</string>
+    <string name="question0">Нумерация массивов начинается с 1.</string>
+    <string name="question1">Энергию в клетке продуцирует рибосомы.</string>
+    <string name="question2">Ядро Юпитера из металлического водорода.</string>
+    <string name="question3">Kорабль корпорации SpaceX называется DarkSide.</string>
+    <string name="question4">Тяжёлые атомы рождены при вспышках сверхновых.</string>
+    <string name="question5">String это числовой тип данных.</string>
     <string name="showAnswer">Показать ответ</string>
+    <string name="start">Попробовать ещё раз!</string>
 </resources>
