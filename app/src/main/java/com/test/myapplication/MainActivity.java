@@ -16,12 +16,12 @@ public class MainActivity extends AppCompatActivity {
     private TextView textView;
     private StringBuilder score = new StringBuilder(); // итоговый текст про ответы на вопросы
     private Question[] questions = new Question[]{
-            new Question(R.string.question0,true),
-            new Question(R.string.question1,false),
-            new Question(R.string.question2,false),
+            new Question(R.string.question0,false),
+            new Question(R.string.question1,true),
+            new Question(R.string.question2,true),
             new Question(R.string.question3,false),
-            new Question(R.string.question4,false),
-            new Question(R.string.question5, true)
+            new Question(R.string.question4,true),
+            new Question(R.string.question5, false)
     };
     private int questionIndex = 0;
     @Override
@@ -46,21 +46,14 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, R.string.correct, Toast.LENGTH_SHORT).show();
                 else
                     Toast.makeText(MainActivity.this, R.string.incorrect, Toast.LENGTH_SHORT).show();
-                setRes(questionIndex, questions[questionIndex].getQuestionResId(), questions[questionIndex].isAnswerTrue());
+                setRes(questionIndex, questions[questionIndex].isAnswerTrue());
                 if(questionIndex < (questions.length-1)) {
-                    textView.setText(questions[questionIndex].getQuestionResId());
                     questionIndex++;
-                    //showRes();
+                    textView.setText(questions[questionIndex].getQuestionResId());
                 }else {
                     showRes();
-                    //questionIndex++;
-
-                    //showRes();
-                    //questionIndex = (questionIndex+1)%questions.length;
                 }
                 //questionIndex = (questionIndex+1)%questions.length;
-                //questionIndex = (questionIndex+1)%questions.length;
-
             }
         });
         noBtn.setOnClickListener(new View.OnClickListener() {
@@ -70,10 +63,10 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this,R.string.incorrect,Toast.LENGTH_SHORT).show();
                 else
                     Toast.makeText(MainActivity.this,R.string.correct,Toast.LENGTH_SHORT).show();
-                setRes(questionIndex, questions[questionIndex].getQuestionResId(), questions[questionIndex].isAnswerTrue());
+                setRes(questionIndex, questions[questionIndex].isAnswerTrue());
                 if(questionIndex < (questions.length-1)) {
-                    textView.setText(questions[questionIndex].getQuestionResId());
                     questionIndex++;
+                    textView.setText(questions[questionIndex].getQuestionResId());
                 }else {
                     showRes();
                 }
@@ -120,11 +113,12 @@ public class MainActivity extends AppCompatActivity {
         Log.d("SYSTEM INFO: ", "Метод onDestroy() запущен");
     }
 
-    public void setRes(int num, int text, boolean question){
-        score.append("Вопрос № "+num+" [ "+text+" ] : " + ((question) ? "Верно !":"Ошибочка (") + "\n");
+    public void setRes(int num, boolean question){
+        score.append("Вопрос № "+num+" [ "+getString(questions[questionIndex].getQuestionResId()) +" ] : " + ((question) ? "Верно !":"Ошибочка (") + "\n");
     }
     public void showRes(){
         Intent intent = new Intent(MainActivity.this, ItogActivity.class);
+
         intent.putExtra("answer2", score.toString());
         startActivity(intent);
     }
