@@ -42,11 +42,14 @@ public class MainActivity extends AppCompatActivity {
         yesBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(questions[questionIndex].isAnswerTrue())
+                if(questions[questionIndex].isAnswerTrue()) {
                     Toast.makeText(MainActivity.this, R.string.correct, Toast.LENGTH_SHORT).show();
-                else
+                    setRes(questionIndex, true);
+                }else {
                     Toast.makeText(MainActivity.this, R.string.incorrect, Toast.LENGTH_SHORT).show();
-                setRes(questionIndex, questions[questionIndex].isAnswerTrue());
+                    setRes(questionIndex, false);
+                }
+
                 if(questionIndex < (questions.length-1)) {
                     questionIndex++;
                     textView.setText(questions[questionIndex].getQuestionResId());
@@ -59,11 +62,13 @@ public class MainActivity extends AppCompatActivity {
         noBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(questions[questionIndex].isAnswerTrue())
-                    Toast.makeText(MainActivity.this,R.string.incorrect,Toast.LENGTH_SHORT).show();
-                else
-                    Toast.makeText(MainActivity.this,R.string.correct,Toast.LENGTH_SHORT).show();
-                setRes(questionIndex, questions[questionIndex].isAnswerTrue());
+                if(questions[questionIndex].isAnswerTrue()) {
+                    Toast.makeText(MainActivity.this, R.string.incorrect, Toast.LENGTH_SHORT).show();
+                    setRes(questionIndex, false);
+                }else {
+                    Toast.makeText(MainActivity.this, R.string.correct, Toast.LENGTH_SHORT).show();
+                    setRes(questionIndex, true);
+                }
                 if(questionIndex < (questions.length-1)) {
                     questionIndex++;
                     textView.setText(questions[questionIndex].getQuestionResId());
